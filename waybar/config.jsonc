@@ -1,0 +1,112 @@
+// vim:set ft=jsonc:
+{
+  "position": "top",
+  "layer": "top",
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/playerctl"
+  ],
+
+  // --- CENTER MODULES ---
+  "modules-center": ["clock"],
+
+  "clock": {
+    "interval": 1,
+    "format": " {:%H:%M:%S %d %b}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode"          : "year",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "right",
+      "on-scroll"     : 1,
+      "on-click-right": "mode",
+      "format": {
+        "months":     "<span color='#ffead3'><b>{}</b></span>",
+        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks":      "<span color='#99ffdd'><b>{}</b></span>",
+        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+        }
+    }
+  },
+
+  "modules-right": [
+    "tray",
+    "pulseaudio",
+    "hyprland/language",
+    "temperature",
+    "cpu",
+    "memory"
+  ],
+
+  "hyprland/workspaces": {
+      "format": "{id}: {icon} ",
+      "format-icons": {
+        "active": "",
+        "default": ""
+      }
+  },
+
+  "cpu": {
+      "interval": 10,
+      "format": "{usage}% <span foreground='#89b4fa'></span>",
+      "on-click": "kitty htop"
+  },
+
+  "memory": {
+      "interval": 10,
+      "format": "{}% <span foreground='#f5e0dc'></span>",
+      "on-click": "kitty htop"
+  },
+
+  "temperature": {
+      "interval": 30,
+      "critical-threshold": 80,
+      "format": "{temperatureC}°C <span foreground='#eba0ac'></span>",
+      "on-click": "kitty htop"
+  },
+
+  "hyprland/language": {
+    "format": "  {}",
+    "format-en": "en",
+    "format-ru": "ru"
+  },
+
+  "pulseaudio": { // TODO: replace with wireplumber
+      "format":                 "{volume}% {icon} {format_source}",
+      "format-bluetooth":       "{volume}% {icon} {format_source}",
+      "format-bluetooth-muted": " {icon} {format_source}",
+      "format-muted":           " {format_source}",
+      "format-source":          "{volume}% ",
+      "format-source-muted":    "",
+      "format-icons": {
+          "headphone":  "",
+          "hands-free": "",
+          "headset":    "",
+          "phone":      "",
+          "portable":   "",
+          "car":        "",
+          "default": ["", "", ""]
+      },
+      "on-click": "pavucontrol"
+  },
+
+  "custom/playerctl": {
+    "format": "{icon}  <span>{}</span>",
+    "return-type": "json",
+    "max-length": 50,
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} ~ {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "on-click-middle": "playerctl play-pause",
+    "on-click": "playerctl previous",
+    "on-click-right": "playerctl next",
+    "format-icons": {
+      "Playing": "<span foreground='#94e2d5'></span>",
+      "Paused": "<span foreground='#f38ba8'></span>"
+    }
+  },
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10 
+  },
+}
