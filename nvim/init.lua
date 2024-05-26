@@ -1,5 +1,6 @@
 require('base')
 require('keybinds')
+require('plugins')
 
 function gitBranchName()
 	local source_branch = vim.fn.system("git rev-parse --abbrev-ref HEAD")
