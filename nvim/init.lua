@@ -1,3 +1,6 @@
+require('base')
+require('keybinds')
+
 function gitBranchName()
 	local source_branch = vim.fn.system("git rev-parse --abbrev-ref HEAD")
 	if string.find(source_branch, "-(%d+)") then
@@ -29,8 +32,6 @@ end
 
 vim.api.nvim_create_user_command('LocalBuild', localBuild, {})
 
-vim.api.nvim_set_keymap('t', '<C-[>', '<C-\\><C-n>', {noremap = true})
-
 local isTerminalOpen = false
 function toggleTerminal()
 	if isTerminalOpen then
@@ -44,9 +45,4 @@ end
 
 
 vim.api.nvim_set_keymap('n', '<Leader>t', ':lua toggleTerminal()<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', ']b', 'gt', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '[b', 'gT', {noremap = true, silent = true})
---vim.api.nvim_set_keymap('n', '<Leader>t', ':belowright split | resize 10 | terminal<CR>', {noremap = true, silent = true})
-
-vim.o.termguicolors = true
 
