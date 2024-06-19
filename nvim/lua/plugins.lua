@@ -96,16 +96,39 @@ cmp.setup {
     { name = 'path' },
   },
 }
-local pwd = vim.loop.cwd()
-local mason_lspconfig = require 'mason-lspconfig'
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      cmd = {'clangd', '-compile-commands-dir=' .. pwd .. '/.settings'},
-      capabilities = capabilities,
-      on_attach = on_attach,
---    settings = servers[server_name],
---    filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end,
+
+local directories_to_search = { 
+        '.clangd',
+        '.settings'}
+
+local function findCCD(directories)
+    for _, dir in ipairs(directories) do
+        local full_path = dir .. "/compile_commands.json"
+        if (vim.fn.filereadable(full_path)) then
+            return dir
+        end
+    end
+    return nil
+end
+
+local clangd_opts = {
+  cmd = {
+        "clangd",
+  --        "--background-index",
+        "--suggest-missing-includes",
+        --"--compile-commands-dir=" .. findCCD(directories_to_search),
+        "--compile-commands-dir=/home/ilyasha/workspaces/code-mkd/develop/mk4/.clangd/",
+  },
+  filetypes = { "c", "cpp", "objc", "objcpp" },
+  on_attach = on_attach,
 }
+
+nvim_lsp.clangd.setup(clangd_opts)
+
+    
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '\\f', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
