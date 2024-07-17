@@ -4,8 +4,6 @@ vim.o.termguicolors = true
 -- Set highlight on search
 vim.o.hlsearch = true
 
---vim.o.showmatch = true
-
 -- Sync clipboard between OS and Neovim.
 vim.o.clipboard = 'unnamedplus'
 
