@@ -37,7 +37,8 @@
     "hyprland/language",
     "temperature",
     "cpu",
-    "memory"
+    "memory",
+    "battery"
   ],
 
   "hyprland/workspaces": {
@@ -105,8 +106,27 @@
       "Paused": "<span foreground='#f38ba8'></span>"
     }
   },
+
+  // Battery
+  "battery": {
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-alt": "{icon}  {time}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": [" ", " ", " ", " ", " "]
+  },
+
+   // System tray
   "tray": {
     "icon-size": 20,
     "spacing": 10 
   },
+
 }

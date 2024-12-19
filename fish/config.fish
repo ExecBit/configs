@@ -22,3 +22,4 @@ end
 function cf
     cd ~ && cd (fd -t d | fzf)
 end
+
