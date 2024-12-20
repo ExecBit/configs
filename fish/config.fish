@@ -23,3 +23,4 @@ function cf
     cd ~ && cd (fd -t d | fzf)
 end
 
+alias ucb='~/scripts/universal_cmake_build.sh'
