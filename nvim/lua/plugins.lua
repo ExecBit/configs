@@ -41,6 +41,11 @@ require('lazy').setup({
         },
 
         {
+            'nvim-treesitter/nvim-treesitter-context',
+            config = C.treesitter_context
+        },
+
+        {
             'williamboman/mason.nvim',
             lazy = true,
             event = mason_lazy,
