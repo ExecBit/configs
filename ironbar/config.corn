@@ -1,0 +1,86 @@
+let {
+
+    $tray = { type = "tray" }
+    
+    $clock = {
+        type = "clock"
+        format = " %B %d  %H:%M"
+        //format = "%d/%m/%Y %H:%M"
+    }
+
+    $focused = {
+      type = "focused"
+      show_icon = false
+      show_title = true
+      icon_size = 24
+      icon_theme = "Tela-circle-nord"
+
+      truncate.mode = "end"
+      truncate.max_length = 25
+    }
+
+    $sys_info = {
+        type = "sys_info"
+
+        interval.disks = 10
+        interval.memory = 1
+        interval.cpu = 1
+
+        format = [
+            "  {cpu_percent}%"
+            "  {memory_percent}%"
+            "  {disk_used:/} / {disk_total:/} GB ({disk_percent:/}%)"
+        ]
+    }
+
+    $volume = {
+      type = "volume"
+      format = "{icon} {percentage}%"
+      max_volume = 100
+      icons.volume_high = " "
+      icons.volume_medium = " "
+      icons.volume_low = " "
+      icons.muted = "󰝟 "
+      on_scroll_down = "wpctl set-volume @DEFAULT_SINK@ 2%-"
+      on_scroll_up = "wpctl set-volume @DEFAULT_SINK@ 2%+"
+      tooltip = "{{/home/bluebyt/.config/ironbar/scripts/volume}}%"
+    }
+
+    $workspace = {
+        type = "workspaces"
+        sort = "alphanumeric"
+        on_scroll_up = "hyprctl dispatch workspace -1"
+        on_scroll_down = "hyprctl dispatch workspace +1"
+    }
+
+    $battery = {
+      type = "upower"
+      format = "{percentage}%"
+    }
+   
+    $clipboard = { type = "clipboard" max_items = 3 truncate.mode = "end" truncate.length = 50 }
+
+    //TODO maybe need sway notification demon
+    $notifications = {
+        type = "notifications"
+        show_count = true
+
+        icons.closed_none = "󰍥"
+        icons.closed_some = "󱥂"
+        icons.closed_dnd = "󱅯"
+        icons.open_none = "󰍡"
+        icons.open_some = "󱥁"
+        icons.open_dnd = "󱅮"
+    }
+
+    $start = [ $workspace ]
+    $center = [ $focused ]
+    $end = [ $tray $volume $sys_info $clock $battery $clipboard ]
+}
+in {
+        icon_theme = "Tela-circle-nord"
+        position = "top"
+        start = $start
+        center = $center
+        end = $end
+}
