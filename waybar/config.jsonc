@@ -38,7 +38,8 @@
     "temperature",
     "cpu",
     "memory",
-    "battery"
+    "battery",
+    "custom/cpu"
   ],
 
   "hyprland/workspaces": {
@@ -50,19 +51,19 @@
   },
 
   "cpu": {
-      "interval": 10,
+      "interval": 1,
       "format": "{usage}% <span foreground='#89b4fa'></span>",
       "on-click": "kitty htop"
   },
 
   "memory": {
-      "interval": 10,
+      "interval": 1,
       "format": "{}% <span foreground='#f5e0dc'></span>",
       "on-click": "kitty htop"
   },
 
   "temperature": {
-      "interval": 30,
+      "interval": 1,
       "critical-threshold": 80,
       "format": "{temperatureC}°C <span foreground='#eba0ac'></span>",
       "on-click": "kitty htop"
@@ -128,5 +129,11 @@
     "icon-size": 20,
     "spacing": 10 
   },
+
+    "custom/cpu": {
+        "exec": "~/.config/waybar/cpu_bash.sh",
+        "interval": 1,
+        "format": "{}"
+    },
 
 }
