@@ -27,9 +27,8 @@ let {
         interval.cpu = 1
 
         format = [
-            "  {cpu_percent}%"
             "  {memory_percent}%"
-            "  {disk_used:/} / {disk_total:/} GB ({disk_percent:/}%)"
+            "  {disk_free:/} GB ({disk_percent:/}%)"
         ]
     }
 
@@ -53,7 +52,7 @@ let {
         on_scroll_down = "hyprctl dispatch workspace +1"
     }
 
-    $battery = {
+    $my_battery = {
       type = "upower"
       format = "{percentage}%"
     }
@@ -73,14 +72,24 @@ let {
         icons.open_dnd = "󱅮"
     }
 
+    $config_dir = "clock" 
+    $cairo = { 
+        type = "cairo" 
+        path = "$config_dir/clock.lua" 
+        frequency = 100 
+        width = 300 
+        height = 300 
+    } 
+
     $start = [ $workspace ]
-    $center = [ $focused ]
-    $end = [ $tray $volume $sys_info $clock $battery $clipboard ]
+    $center = [ $clock ]
+    $end = [ $tray $volume $sys_info $my_battery $clipboard ]
 }
 in {
-        icon_theme = "Tela-circle-nord"
+        icon_theme = "Papirus"
         position = "top"
         start = $start
         center = $center
         end = $end
 }
+
