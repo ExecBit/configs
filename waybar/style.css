@@ -54,19 +54,11 @@ window#waybar.solo #workspaces button {
 #memory,
 #temperature,
 #backlight,
+#disk,
 #battery {
   margin: 5px;
   padding-left: 10px;
   padding-right: 15px;
-  border-radius: 7px;
-  color: @lavender;
-  background-color: @bg;
-}
-
-#custom-playerctl {
-  margin: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
   border-radius: 7px;
   color: @lavender;
   background-color: @bg;
@@ -101,4 +93,4 @@ window#waybar.solo #workspaces button {
 #workspaces button.active {
   color: @red;
 }
-/* bottom waybar */
+
