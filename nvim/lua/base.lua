@@ -20,4 +20,28 @@ vim.o.smartindent = true
 
 vim.o.splitright = true
 vim.o.splitbelow = true
+vim.o.shell = "/bin/fish"
+
+-- Automatically save the neovim session before exiting
+vim.api.nvim_create_autocmd("VimLeavePre", {
+    callback = function()
+        local timestamp = os.date("%Y-%m-%d_%H-%M-%S")
+        local session_file = string.format("~/.config/nvim/session_%s.vim", timestamp)
+        vim.cmd("mksession! " .. session_file)
+    end,
+})
+
+-- Включить отображение невидимых символов
+vim.opt.list = true
+
+-- Настроить символы для отображения пробелов и табов
+vim.opt.listchars = {
+  eol = '$',     -- Символ для отображения конца строки
+  space = '·',   -- Символ для отображения пробелов
+  tab = '>-',    -- Символ для отображения табов
+  trail = '~',   -- Символ для отображения пробелов в конце строки
+  extends = '#', -- Символ для отображения продолжения строки
+  precedes = '#', -- Символ для отображения начала строки
+  nbsp = '%',    -- Символ для отображения неразрывных пробелов
+}
 

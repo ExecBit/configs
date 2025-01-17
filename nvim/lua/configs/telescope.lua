@@ -1,11 +1,29 @@
 local setup = function()
       require('telescope').setup {
-        extensions = {
-          ['ui-select'] = {
-            require('telescope.themes').get_dropdown(),
-          },
+--      extensions = {
+--        ['ui-select'] = {
+--          require('telescope.themes').get_dropdown(),
+--        },
+--      },
+        defaults = {
+                layout_strategy = "vertical",
+                layout_config = {
+                  vertical = {
+                    prompt_position = "top",
+                    width = { padding = 0 },
+                    height = { padding = 0 },
+                    preview_width = 0.5,
+                  },
+                },
+                sorting_strategy = "ascending",
         },
+        pickers = {
+            lsp_references = {
+                show_line = false
+            }
+        }
       }
+
 
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
