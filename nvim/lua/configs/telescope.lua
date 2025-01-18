@@ -1,14 +1,15 @@
 local setup = function()
       require('telescope').setup {
---      extensions = {
---        ['ui-select'] = {
---          require('telescope.themes').get_dropdown(),
---        },
---      },
+        extensions = {
+          ['ui-select'] = {
+            require('telescope.themes').get_dropdown(),
+          },
+        },
         defaults = {
                 layout_strategy = "vertical",
                 layout_config = {
                   vertical = {
+                    preview_cutoff = 0,
                     prompt_position = "top",
                     width = { padding = 0 },
                     height = { padding = 0 },

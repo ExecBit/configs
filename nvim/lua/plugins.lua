@@ -193,13 +193,20 @@ require('lazy').setup({
             priority = 1000,
             config = C.tokyonight
         },
-    {
-      'stevearc/oil.nvim',
-      opts = {},
-      -- Optional dependencies
-      dependencies = { "echasnovski/mini.icons" },
-      -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
-    }
+
+        {
+          'stevearc/oil.nvim',
+          opts = {},
+          dependencies = { "echasnovski/mini.icons" },
+        },
+
+--      {
+--          "lukas-reineke/indent-blankline.nvim",
+--          main = "ibl",
+--          ---@module "ibl"
+--          ---@type ibl.config
+--          opts = {},
+--      }
     })
 
 vim.cmd.colorscheme "catppuccin-macchiato"

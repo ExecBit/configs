@@ -22,21 +22,35 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 vim.o.shell = "/bin/fish"
 
--- Automatically save the neovim session before exiting
-vim.api.nvim_create_autocmd("VimLeavePre", {
-    callback = function()
+vim.api.nvim_create_user_command(
+    'SaveSession',
+    function()
         local timestamp = os.date("%Y-%m-%d_%H-%M-%S")
         local session_file = string.format("~/.config/nvim/session_%s.vim", timestamp)
         vim.cmd("mksession! " .. session_file)
-    end,
-})
+        print("Complete!")
+  end,
+  {}
+)
+
+-- Определение пользовательской команды
+vim.api.nvim_create_user_command(
+  'ReopenTerminal',
+  function()
+    local current_buffer = vim.api.nvim_get_current_buf()
+    local buffer_name = vim.api.nvim_buf_get_name(current_buffer)
+    vim.cmd('bdelete!') -- Закрыть текущий буфер
+    vim.cmd('edit ' .. buffer_name) -- Открыть буфер заново
+  end,
+  {}
+)
 
 -- Включить отображение невидимых символов
 vim.opt.list = true
 
 -- Настроить символы для отображения пробелов и табов
 vim.opt.listchars = {
-  eol = '$',     -- Символ для отображения конца строки
+--  eol = '⤶',     -- Символ для отображения конца строки
   space = '·',   -- Символ для отображения пробелов
   tab = '>-',    -- Символ для отображения табов
   trail = '~',   -- Символ для отображения пробелов в конце строки
