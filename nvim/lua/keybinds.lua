@@ -1,11 +1,19 @@
-vim.api.nvim_set_keymap('n', ']b', 'gt', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '[b', 'gT', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('t', '<C-[>', '<C-\\><C-n>', {noremap = true})
+local keyMap = function(keys, func)
+    vim.keymap.set('n', keys, func, { noremap = true, silent = true })
+end
+
+keyMap(']b', 'gt')
+keyMap('[b', 'gT')
+vim.keymap.set('t', '<C-[>', '<C-\\><C-n>', {noremap = true})
 
 vim.g.mapleader = ' '
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+keyMap('[d', vim.diagnostic.goto_prev)
+keyMap(']d', vim.diagnostic.goto_next)
+
+--kill buffer without killing window
+keyMap('<leader>q', function() vim.cmd('bp | sp | bn | bd') end)
+--kill buffer and create new, without killing window
+--keyMap('<leader>i', ':enew<bar>bd #<CR>')
 
 vim.opt.scrolloff = 999 - vim.o.scrolloff
+

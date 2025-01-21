@@ -1,10 +1,5 @@
 local setup = function()
       require('telescope').setup {
---      extensions = {
---        ['ui-select'] = {
---          require('telescope.themes').get_dropdown(),
---        },
---      },
         defaults = {
                 layout_strategy = "vertical",
                 layout_config = {
@@ -23,8 +18,12 @@ local setup = function()
                 show_line = false
             },
             buffers = {
-                --only_cwd = true,
-                show_all_buffers = true,
+                sort_mru = true,
+                mappings = {
+                    n = {
+                        ["<c-d>"] = "delete_buffer",
+                    },
+                },
             }
         }
       }
