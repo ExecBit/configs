@@ -39,7 +39,7 @@ vim.api.nvim_create_user_command(
   function()
     local current_buffer = vim.api.nvim_get_current_buf()
     local buffer_name = vim.api.nvim_buf_get_name(current_buffer)
-    vim.cmd('bdelete!') -- Закрыть текущий буфер
+    vim.cmd('bp | sp | bn | bd!') -- Закрыть текущий буфер
     vim.cmd('edit ' .. buffer_name) -- Открыть буфер заново
   end,
   {}
