@@ -195,9 +195,10 @@ require('lazy').setup({
         },
 
         {
-          'stevearc/oil.nvim',
-          opts = {},
-          dependencies = { "echasnovski/mini.icons" },
+            'stevearc/oil.nvim',
+            opts = {},
+            dependencies = { "echasnovski/mini.icons" },
+            config = C.oil
         },
 
 --      {
