@@ -4,30 +4,25 @@ local mason_servers = {
     'lua_ls',
     'rust_analyzer',
     'clangd',
-    'pyright'
+    'pyright',
+    'bashls',
+    'robotframework_ls',
 }
+
 vim.diagnostic.config {
 
-underline = true,
+    underline = true,
 
-virtual_text = {
+    virtual_text = {
+        prefix = "",
+        severity = nil,
+        source = "if_many",
+        format = nil,
+    },
 
-prefix = "",
-
-severity = nil,
-
-source = "if_many",
-
-format = nil,
-
-},
-
-signs = true,
-
-severity_sort = true,
-
-update_in_insert = false,
-
+    signs = true,
+    severity_sort = true,
+    update_in_insert = false,
 }
 
 local setup = function()
@@ -51,6 +46,8 @@ local setup = function()
         ['lua_ls'] = lsp_client.lua.setup,
         ['rust_analyzer'] = lsp_client.rust.setup,
         ['clangd'] = lsp_client.clang.setup,
+        ['bashls'] = lsp_client.bash.setup,
+        ['robotframework_ls'] = lsp_client.robotframework.setup,
     }
     vim.keymap.set({ 'n' }, '<C-k>', function()
         require('lsp_signature').toggle_float_win()
@@ -68,7 +65,9 @@ local lazy_load = function()
         lsp_client.lua.ft,
         lsp_client.rust.ft,
         lsp_client.clang.ft,
-        lsp_client.python.ft
+        lsp_client.python.ft,
+        lsp_client.bash.ft,
+        lsp_client.robotframework.ft,
     }
 
     local result = {}

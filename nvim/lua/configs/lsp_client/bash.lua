@@ -1,9 +1,10 @@
 local setup = function()
-    require('lspconfig').pyright.setup {}
+    require('lspconfig').bashls.setup {}
 end
 
 local ft = {
-    '*.py',
+    '*.bash',
+    '*.sh',
 }
 
 local M = {

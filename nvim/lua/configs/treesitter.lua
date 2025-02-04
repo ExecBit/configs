@@ -8,6 +8,7 @@ local setup = function()
             'regex',
             'vim',
             'bash',
+            'robot',
             'markdown',
             'markdown_inline'
         },

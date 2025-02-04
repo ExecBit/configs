@@ -1,9 +1,9 @@
 local setup = function()
-    require('lspconfig').pyright.setup {}
+    require('lspconfig').robotframework_ls.setup {}
 end
 
 local ft = {
-    '*.py',
+    '*.robot',
 }
 
 local M = {
