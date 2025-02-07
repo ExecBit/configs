@@ -1,19 +1,28 @@
-local keyMap = function(keys, func)
+local keyNormalMap = function(keys, func)
     vim.keymap.set('n', keys, func, { noremap = true, silent = true })
 end
 
-keyMap(']b', 'gt')
-keyMap('[b', 'gT')
-vim.keymap.set('t', '<C-[>', '<C-\\><C-n>', {noremap = true})
+local keyTermMap = function(keys, func)
+    vim.keymap.set('t', keys, func, { noremap = true, silent = true })
+end
+
+keyNormalMap(']b', 'gt')
+keyNormalMap('[b', 'gT')
 
 vim.g.mapleader = ' '
-keyMap('[d', vim.diagnostic.goto_prev)
-keyMap(']d', vim.diagnostic.goto_next)
+keyNormalMap('[d', vim.diagnostic.goto_prev)
+keyNormalMap(']d', vim.diagnostic.goto_next)
 
---kill buffer without killing window
-keyMap('<leader>q', function() vim.cmd('bp | sp | bn | bd') end)
---kill buffer and create new, without killing window
---keyMap('<leader>i', ':enew<bar>bd #<CR>')
+keyTermMap('<C-[>', '<C-\\><C-n>')
 
 vim.opt.scrolloff = 999 - vim.o.scrolloff
+
+vim.keymap.set("t", "<C-A>", function()
+    vim.api.nvim_feedkeys("pwd | wl-copy\n", "t", false) -- Копируем путь
+    vim.api.nvim_input("<C-\\><C-n>")
+    vim.defer_fn(function()
+        vim.cmd('cd ' .. vim.fn.getreg('+')) -- Ждём обновления clipboard и только потом выполняем cd
+    end, 50) -- 50 мс задержки
+
+end, { silent = true })
 
