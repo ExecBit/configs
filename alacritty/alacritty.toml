@@ -1,12 +1,13 @@
 terminal.shell = "fish"
 general.live_config_reload = true
+selection.save_to_clipboard = true
 
 [font]
 normal = { family = "JetBrainsMono" }
 bold = { family = "JetBrainsMono" }
 italic = { family = "JetBrainsMono" }
 bold_italic = { family = "JetBrainsMono" }
-size = 16
+size = 14
 
 # Colors (Hyper)
 
