@@ -149,8 +149,7 @@ require('lazy').setup({
 
         {
             'lewis6991/gitsigns.nvim',
-            cond = is_git_folder,
-            config = true,
+            config = C.gitsigns,
         },
 
         {
