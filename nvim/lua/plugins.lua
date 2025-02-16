@@ -205,6 +205,11 @@ require('lazy').setup({
             priority = 1001,
         },
 
+        {
+            'stevearc/overseer.nvim',
+            config = C.overseer
+        },
+
     })
 
 vim.cmd.colorscheme "catppuccin-macchiato"

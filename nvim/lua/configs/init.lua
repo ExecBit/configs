@@ -7,6 +7,6 @@ M.cmp = require('configs.cmp').setup
 M.telescope = require('configs.telescope').setup
 M.lualine = require('configs.lualine').setup
 M.gitsigns = require('configs.gitsigns').setup
---M.indent_line = require('configs.indent_line').setup
+M.overseer = require('configs.overseer').setup
 
 return M
