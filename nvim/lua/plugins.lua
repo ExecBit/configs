@@ -153,11 +153,6 @@ require('lazy').setup({
         },
 
         {
-            'tpope/vim-fugitive',
-            cond = is_git_folder,
-        },
-
-        {
             'alvarosevilla95/luatab.nvim',
             lazy = true,
             config = C.luatab
@@ -200,13 +195,16 @@ require('lazy').setup({
             config = C.oil
         },
 
---      {
---          "lukas-reineke/indent-blankline.nvim",
---          main = "ibl",
---          ---@module "ibl"
---          ---@type ibl.config
---          opts = {},
---      }
+        {
+            "willothy/flatten.nvim",
+            config = true,
+            -- or pass configuration with
+            -- opts = {  }
+            -- Ensure that it runs first to minimize delay when opening file from terminal
+            lazy = false,
+            priority = 1001,
+        },
+
     })
 
 vim.cmd.colorscheme "catppuccin-macchiato"
