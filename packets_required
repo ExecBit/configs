@@ -7,4 +7,4 @@ qt6-wayland
 shellcheck
 hyprpicker
 nwg-displays
-
+rocm-smi-lib #btop gpu requeired
