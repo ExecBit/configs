@@ -4,8 +4,10 @@ end
 
 set PATH ~/.cargo/bin/ $PATH
 set PATH /opt/linphone/bin $PATH
+set PATH ~/.scripts/bash $PATH
+set PATH ~/.scripts/python/ $PATH
 
-set -g fish_key_bindings fish_vi_key_bindings
+#set -g fish_key_bindings fish_vi_key_bindings
 
 export EDITOR=nvim
 export VISUAL=nvim
@@ -23,4 +25,3 @@ function cf
     cd ~ && cd (fd -t d | fzf)
 end
 
-alias ucb='~/scripts/universal_cmake_build.sh'

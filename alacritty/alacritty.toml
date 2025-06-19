@@ -7,7 +7,7 @@ normal = { family = "JetBrainsMono" }
 bold = { family = "JetBrainsMono" }
 italic = { family = "JetBrainsMono" }
 bold_italic = { family = "JetBrainsMono" }
-size = 14
+size = 13
 
 # Colors (Hyper)
 
