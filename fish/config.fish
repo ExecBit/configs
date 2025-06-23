@@ -12,6 +12,10 @@ set PATH ~/.scripts/python/ $PATH
 export EDITOR=nvim
 export VISUAL=nvim
 
+#не забыть поставить эти ебучие пакеты
+export CC=/usr/bin/gcc-14
+export CXX=/usr/bin/g++-14
+
 function yy
 	set tmp (mktemp -t "yazi-cwd.XXXXXX")
 	yazi $argv --cwd-file="$tmp"
