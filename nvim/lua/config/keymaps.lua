@@ -1,3 +1,5 @@
+vim.keymap.set('n', '<space>t', ':LspClangdSwitchSourceHeader<CR>')
+
 local keyNormalMap = function(keys, func)
     vim.keymap.set('n', keys, func, { noremap = true, silent = true })
 end
@@ -16,4 +18,3 @@ keyNormalMap(']d', vim.diagnostic.goto_next)
 keyTermMap('<C-[>', '<C-\\><C-n>')
 
 vim.opt.scrolloff = 999 - vim.o.scrolloff
-
