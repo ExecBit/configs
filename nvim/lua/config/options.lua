@@ -41,27 +41,3 @@ vim.opt.autoindent = true
 vim.opt.wrap = false
 vim.opt.autoread = true
 vim.opt.ttyfast = true
-
-vim.api.nvim_create_user_command(
-    'SaveSession',
-    function()
-        local timestamp = os.date("%Y-%m-%d_%H-%M-%S")
-        local session_file = string.format("~/.config/nvim/session_%s.vim", timestamp)
-        vim.cmd("mksession! " .. session_file)
-        print("Complete!")
-  end,
-  {}
-)
-
--- Определение пользовательской команды
-vim.api.nvim_create_user_command(
-  'ReopenTerminal',
-  function()
-    local current_buffer = vim.api.nvim_get_current_buf()
-    local buffer_name = vim.api.nvim_buf_get_name(current_buffer)
-    vim.cmd('bp | sp | bn | bd!') -- Закрыть текущий буфер
-    vim.cmd('edit ' .. buffer_name) -- Открыть буфер заново
-  end,
-  {}
-)
-
