@@ -55,6 +55,7 @@ window#waybar.solo #workspaces button {
 #temperature,
 #backlight,
 #disk,
+#custom-notification,
 #battery {
   margin: 5px;
   padding-left: 10px;
