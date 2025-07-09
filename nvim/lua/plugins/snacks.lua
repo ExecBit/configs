@@ -5,7 +5,7 @@ return {
     ---@type snacks.Config
     opts = {
         bigfile = { enabled = true },
-        dashboard = { enabled = true },
+        dashboard = { enabled = false },
         explorer = { enabled = true },
         indent = { enabled = true },
         input = { enabled = true },
@@ -13,7 +13,30 @@ return {
           enabled = true,
           timeout = 3000,
         },
-        picker = { enabled = true },
+        picker = {
+            enabled = true,
+            layout = {
+                fullscreen = true,
+                layout = {
+                    backdrop = false,
+                    row = 1,
+                    width = 0.4,
+                    min_width = 80,
+                    height = 0.8,
+                    border = "none",
+                    box = "vertical",
+                    { win = "preview", title = "{preview}", height = 0.7, border = "rounded" },
+                    {
+                      box = "vertical",
+                      border = "rounded",
+                      title = "{title} {live} {flags}",
+                      title_pos = "center",
+                      { win = "input", height = 1, border = "bottom" },
+                      { win = "list", border = "none" },
+                    },
+                },
+            },
+        },
         quickfile = { enabled = true },
         scope = { enabled = true },
         scroll = { enabled = false },
