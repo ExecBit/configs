@@ -1,0 +1,34 @@
+! Настройки для xterm
+XTerm*loginShell: true
+XTerm*shell: /usr/bin/fish
+
+XTerm*faceName: JetBrainsMono
+XTerm*faceSize: 14
+
+XTerm*foreground: #cccccc
+XTerm*background: #1d1f21
+XTerm*cursorColor: #cccccc
+XTerm*selectColor: #44475a
+XTerm*color0:  #282a36
+XTerm*color1:  #f38ba8
+XTerm*color2:  #a6e3a1
+XTerm*color3:  #f9e2af
+XTerm*color4:  #89b4fa
+XTerm*color5:  #f5c2e7
+XTerm*color6:  #94e2d5
+XTerm*color7:  #bac2de
+XTerm*color8:  #444267
+XTerm*color9:  #f38ba8
+XTerm*color10: #a6e3a1
+XTerm*color11: #f9e2af
+XTerm*color12: #89b4fa
+XTerm*color13: #f5c2e7
+XTerm*color14: #94e2d5
+XTerm*color15: #bac2de
+
+XTerm*vt100.translations: #override \
+  Shift <KeyPress> Insert: insert-selection(CLIPBOARD) \n\
+  Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD)
+
+! Включение поддержки вставки
+XTerm*selectToClipboard: true
