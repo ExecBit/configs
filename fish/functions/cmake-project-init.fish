@@ -100,6 +100,7 @@ build*/
 *.a
 *.dylib
 *.exe
+.cache/
 
 CMakeCache.txt
 CMakeFiles/

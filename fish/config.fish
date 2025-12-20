@@ -16,6 +16,18 @@ export VISUAL=nvim
 export CC=/usr/bin/gcc-14
 export CXX=/usr/bin/g++-14
 
+alias packets-cache='sudo pacman -Sc'
+alias packets-orphans='sudo pacman -Rns (pacman -Qtdq)'
+
+# Сохранить только ОФИЦИАЛЬНЫЕ пакеты
+alias packets-official-save='pacman -Qqen > official_pkgs.txt'
+alias packets-official-recover='sudo pacman -S --needed - < official_pkgs.txt'
+
+# Сохранить только AUR пакеты
+alias packets-aur-save='pacman -Qqem > aur_pkgs.txt'
+alias packets-aur-recover='paru -S --needed - < aur_pkgs.txt'
+
+
 function yy
 	set tmp (mktemp -t "yazi-cwd.XXXXXX")
 	yazi $argv --cwd-file="$tmp"
