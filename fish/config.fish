@@ -6,6 +6,7 @@ set PATH ~/.cargo/bin/ $PATH
 set PATH /opt/linphone/bin $PATH
 set PATH ~/.scripts/bash $PATH
 set PATH ~/.scripts/python/ $PATH
+set PATH ~/.scripts $PATH
 
 #set -g fish_key_bindings fish_vi_key_bindings
 
@@ -15,6 +16,7 @@ export VISUAL=nvim
 #не забыть поставить эти ебучие пакеты
 export CC=/usr/bin/gcc-14
 export CXX=/usr/bin/g++-14
+
 
 alias packets-cache='sudo pacman -Sc'
 alias packets-orphans='sudo pacman -Rns (pacman -Qtdq)'
