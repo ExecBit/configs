@@ -27,6 +27,36 @@
   padding-bottom: 0;
 }
 
+/* Базовый стиль для кнопок-вкладок */
+#workspaces button {
+    padding: 4px 12px;
+    margin: 0 4px;
+    background-color: #24273a; /* Темный фон вкладки */
+    color: #cad3f5;            /* Цвет текста */
+    border-radius: 6px 6px 0 0; /* Скругление только сверху (эффект таба) */
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+/* Стиль для активной вкладки (где вы сейчас находитесь) */
+#workspaces button.active {
+    background-color: #363a4f;  /* Чуть светлее фон */
+    color: #c6a0f6;             /* Фиолетовый текст */
+    border-bottom: 2px solid #c6a0f6; /* Линия подчеркивания */
+}
+
+/* Стиль при наведении мыши */
+#workspaces button:hover {
+    background-color: #494d64;
+    color: #ffffff;
+}
+
+/* Если на воркспейсе есть открытые окна, но он не активен */
+#workspaces button.urgent {
+    background-color: #ed8796;
+    color: #24273a;
+}
+
 tooltip {
   background: @bg;
   border-radius: 7px;

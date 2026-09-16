@@ -9,14 +9,26 @@
         "hyprland/workspaces"
     ],
 
+//  "hyprland/workspaces": {
+//      "format": "{id}: {icon} ",
+//      "format-icons": {
+//          "active": "",
+//          "default": ""
+//      }
+//  },
     "hyprland/workspaces": {
-        "format": "{id}: {icon} ",
+        "disable-scroll": true,
+        "all-outputs": false,
+        "active-only": false,
+        // Плейсхолдер {name} выведет именно то имя, которое вы задали через rofi
+        //"format": "{name}", 
+        "format": "{id}: {name}",
+        
+        // Опционально: если хотите, чтобы у пустых воркспейсов оставался красивый дефолтный вид
         "format-icons": {
-            "active": "",
-            "default": ""
+            "default": "🔹"
         }
     },
-
 
     // --- CENTER MODULES ---
     "modules-center": ["clock"],
@@ -79,8 +91,8 @@
     },
 
     "pulseaudio": { // TODO: replace with wireplumber
-        "format":                 "{volume}% {icon} {format_source}",
-        "format-bluetooth":       "{volume}% {icon} {format_source}",
+        "format":                 "{volume}% {icon}  {format_source}",
+        "format-bluetooth":       "{volume}% {icon}  {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted":           " {format_source}",
         "format-source":          "{volume}% ",
