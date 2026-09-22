@@ -1,0 +1,14 @@
+# Secrets — real config with bot token lives in ~/.pi/agent, never here
+extensions/pi-telegram-notify/config.json
+
+# npm artifacts (pi manages ~/.pi/agent/npm itself)
+npm/node_modules/
+npm/.gitignore
+
+# Runtime / machine-specific files — excluded from the snapshot
+trust.json
+auth.json
+models-store.json
+mcp-*.json
+plans/
+sessions/

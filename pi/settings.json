@@ -1,0 +1,17 @@
+{
+  "lastChangelogVersion": "0.85.1",
+  "theme": "dark",
+  "packages": [
+    "npm:pi-lmstudio",
+    "npm:@inobit/pi-todo",
+    "npm:@janvitos/pi-plan-build",
+    "npm:pi-mcp-adapter",
+    "npm:pi-metrics",
+    "npm:@oai404iao/pi-telegram-notify",
+    "npm:@cortexkit/aft-pi",
+    "npm:pi-codebase-memory-mcp"
+  ],
+  "defaultProvider": "lmstudio",
+  "defaultModel": "qwen3.6-27b-mtp",
+  "defaultThinkingLevel": "off"
+}
